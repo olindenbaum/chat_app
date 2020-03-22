@@ -1,8 +1,13 @@
+import 'package:chat_app/theme_model.dart';
 import 'package:flutter/material.dart';
 import 'package:chat_app/Pages/title_page.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(ChatApp());
+  // ChangeNotifierProvider<ThemeModel>(
+  //   builder: (BuildContext context) => ThemeModel(), child: ChatApp());
+
+runApp(ChatApp());
 }
 
 class ChatApp extends StatelessWidget {
@@ -30,6 +35,7 @@ class ChatApp extends StatelessWidget {
     return MaterialApp(
       title: 'Chat App',
       theme: darkTheme,
+      // theme: Provider.of<ThemeModel>(context).currentTheme, // theme: Provider.of<ThemeModel>(context).toggleTheme()
       home: TitlePage(),
     );
   }
