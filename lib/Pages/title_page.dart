@@ -1,3 +1,4 @@
+import 'package:chat_app/Pages/dev_page.dart';
 import 'package:flutter/material.dart';
 import 'package:chat_app/HelperWidgets/route_animations.dart';
 import 'package:chat_app/Pages/chat_page.dart';
@@ -5,8 +6,12 @@ import 'package:chat_app/Pages/chat_page.dart';
 class TitlePage extends StatelessWidget {
   TitlePage({Key key}) : super(key: key);
 
-  void toSearchPage(BuildContext context) {
+  void _toSearchPage(BuildContext context) {
     Navigator.of(context).push(FadeInRoute(nextPage: ChatPage()));
+  }
+
+  void _toDevPage(BuildContext context) {
+    Navigator.of(context).push(FadeInRoute(nextPage: DevPage()));
   }
 
   @override
@@ -34,11 +39,15 @@ class TitlePage extends StatelessWidget {
               ),
             ),
             RaisedButton(
-                onPressed: () => toSearchPage(context),
+                onPressed: () => _toSearchPage(context),
                 child: Text(
                   "Search",
                   style: TextStyle(fontSize: 20),
                 )
+            ),
+            FloatingActionButton(
+              onPressed: () => _toDevPage(context),
+              child: Icon(Icons.developer_mode),
             ),
           ],
         ),
