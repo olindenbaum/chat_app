@@ -28,9 +28,13 @@ class _ChatBoxState extends State<ChatBox> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: messages.length,
-      itemBuilder: (context, index) => createChatMessageUI(index)
+    return Scaffold(
+      body: Center(
+          child: ListView.builder(
+          itemCount: messages.length,
+          itemBuilder: (context, index) => createChatMessageUI(index)
+        )
+      )
     );
   }
 
@@ -60,13 +64,25 @@ class ChatMessageUI extends StatelessWidget {
       crossAxisAlignment: isClient ? CrossAxisAlignment.end : CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: <Widget> [
-        Text(user.getUsername(),
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 15.0),
+        Padding(
+          padding: EdgeInsets.only(top: 10, bottom: 5),
+          child: Text(user.getUsername(),
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 15.0),
+          ),
         ),
         ClipRRect(
-          borderRadius: BorderRadius.circular(15.0),
-          child: Text(this.message),
+          borderRadius: BorderRadius.circular(30),
+          child: Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.rectangle,
+              color: Theme.of(context).primaryColor,
+            ),
+            child: Padding(
+              padding: EdgeInsets.only(left: 15, right: 15, top: 8, bottom: 8),
+              child: Text(this.message, style: TextStyle(fontSize: 20)),
+            )
+          ),
         ),
       ],
     );
