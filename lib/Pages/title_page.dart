@@ -1,13 +1,13 @@
-import 'package:chat_app/Pages/dev_page.dart';
 import 'package:flutter/material.dart';
 import 'package:chat_app/HelperWidgets/route_animations.dart';
-import 'package:chat_app/Pages/chat_page.dart';
+import 'package:chat_app/Pages/search_page.dart';
+import 'package:chat_app/Pages/dev_page.dart';
 
 class TitlePage extends StatelessWidget {
   TitlePage({Key key}) : super(key: key);
 
   void _toSearchPage(BuildContext context) {
-    Navigator.of(context).push(FadeInRoute(nextPage: ChatPage()));
+    Navigator.of(context).push(FadeInRoute(nextPage: SearchPage()));
   }
 
   void _toDevPage(BuildContext context) {
@@ -19,7 +19,6 @@ class TitlePage extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Column(
-
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Padding(
